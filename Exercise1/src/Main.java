@@ -29,7 +29,8 @@ public class Main {
 
         //Sử dụng Stream API và phương thức sorted() để sắp xếp danh sách theo thứ tự bảng chữ cái.
         String[] strings = {"abc", "def", "ghi", "jkl", "mno"};
-        
+        String[] sorted = Arrays.stream(strings).sorted().toArray(String[]::new);
+
         //Sử dụng Stream API và phương thức map() để chuyển các chuỗi thành chữ in hoa.
         String[] upper = Arrays.stream(strings).map(String::toUpperCase).toArray(String[]::new);
 

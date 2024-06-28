@@ -1,9 +1,8 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         //Viết chương trình DateTime API để lấy ngày hiện tại của hệ thống và các nơi bao gồm : Asia/Tokyo, Australia/Sydney ,America/Sao_Paulo
@@ -50,11 +49,10 @@ public class Main {
         System.out.println(datetime.getDayOfMonth() + "/" + datetime.getMonthValue() + "/" + datetime.getYear() + " " + datetime.getHour() + ":" + datetime.getMinute() + ":" + datetime.getSecond());
 
 
-        //Viết chương trình Datetime API để so sánh hai ngày LocalDate ( trả về int ).
-        System.out.println("So sánh hai ngày LocalDate: ");
-        LocalDate date1 = LocalDate.parse("2023-04-01");
+        //Viết chương trình Datetime API để so sánh hai ngày LocalDate ( trả về int ),trả về số ngày chênh lệch        System.out.println("So sánh hai ngày LocalDate: ");
+        LocalDate date1 = LocalDate.parse("2023-05-09");
         LocalDate date2 = LocalDate.parse("2023-04-02");
-        System.out.println(date1.compareTo(date2));
+        System.out.println("So ngay chênh lệch: " + date2.until(date1, ChronoUnit.DAYS));
 
 
         //Viết chương trình Datetime API để so sánh hai thời gian LocalTime.
@@ -100,5 +98,6 @@ public class Main {
         System.out.println(date3.plusDays(1));
         System.out.println("Ngày trước đó: ");
         System.out.println(date3.minusDays(1));
+
     }
 }
