@@ -1,49 +1,39 @@
 package business;
 
-
 import entity.Department;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class DepartmentBusiness implements IDepartmentDesign {
-    public static List<Department> departments = new ArrayList<>();
-
-    @Override
-    public boolean create(Department department) {
-        departments.add(department);
-        return true;
-
-    }
+public class DepartmentBusiness<Employee> implements IDepartmentDesign {
+    private List<Department> departments = new ArrayList<>();
 
     @Override
-    public boolean update(Department department) {
-        int index = departments.indexOf(findById(department.getDepartmentId()));
-        if (index != -1) {
-            departments.set(index, department);
-            return true;
-        } else {
-            return false; // Or throw an exception if the department does not exist
-        }
-    }
-
-    @Override
-    public boolean deleteById(String id) {
-//        return departments.remove(findById(id));
-        return departments.removeIf(department -> department.getDepartmentId().equals(id));
-    }
-
-    @Override
-    public Department findById(String id) {
-        for (Department department : departments) {
-            if (department.getDepartmentId().equals(id)) return department;
-        }
-        return null;
-    }
-
-    @Override
-    public List<Department> findAll() {
+    public List<Department> getAll() {
         return departments;
     }
 
+    @Override
+    public Department getById(String id) {
+        return departments.stream().filter(d -> d.getDepartmentId().equals(id)).findFirst().orElse(null);
+    }
+
+    @Override
+    public void add(Department department) {
+        departments.add(department);
+    }
+
+    @Override
+    public void update(Department department) {
+        Department d = getById(department.getDepartmentId());
+        if (d != null) {
+            d.setDepartmentName(department.getDepartmentName());
+        }
+    }
+
+    @Override
+    public void delete(String id) {
+        departments.removeIf(d -> d.getDepartmentId().equals(id));
+    }
 }

@@ -65,39 +65,13 @@ public class Main {
         //Viết chương trình Datetime API để thêm hoặc bớt một số ngày, giờ, phút, giây hoặc mili giây vào một ngày hoặc thời gian nhập vào.
         System.out.println("Thêm hoặc bớt một số ngày, giờ, phút, giây hoặc mili giây vào một ngày hoặc thời gian nhập vào: ");
         LocalDateTime datetime3 = LocalDateTime.now();
-        System.out.println("Ngày hiện tại: ");
-        System.out.println(datetime3);
-        System.out.println("Thêm 1 ngày: ");
-        System.out.println(datetime3.plusDays(1));
-        System.out.println("Bớt 1 ngày: ");
-        System.out.println(datetime3.minusDays(1));
-        System.out.println("Thêm 1 giờ: ");
-        System.out.println(datetime3.plusHours(1));
-        System.out.println("Bớt 1 giờ: ");
-        System.out.println(datetime3.minusHours(1));
-        System.out.println("Thêm 1 phút: ");
-        System.out.println(datetime3.plusMinutes(1));
-        System.out.println("Bớt 1 phút: ");
-        System.out.println(datetime3.minusMinutes(1));
-        System.out.println("Thêm 1 giây: ");
-        System.out.println(datetime3.plusSeconds(1));
-        System.out.println("Bớt 1 giây: ");
-        System.out.println(datetime3.minusSeconds(1));
-        System.out.println("Thêm 1 mili giây: ");
-        System.out.println(datetime3.plusNanos(1));
-        System.out.println("Bớt 1 mili giây: ");
-        System.out.println(datetime3.minusNanos(1));
-
+        System.out.println(now);
+        System.out.println(now.plusDays(6).plusHours(10).plusMinutes(10).plusSeconds(10));
 
         //Viết chương trình Datetime API để tính toán ngày (LocalDate) tiếp theo hoặc ngày trước đó của một ngày.
         System.out.println("Ngày tiếp theo hoặc ngày trước đó của một ngày: ");
         LocalDate date3 = LocalDate.parse("2023-04-01");
-        System.out.println("Ngày hiện tại: ");
-        System.out.println(date3);
-        System.out.println("Ngày tiếp theo: ");
-        System.out.println(date3.plusDays(1));
-        System.out.println("Ngày trước đó: ");
-        System.out.println(date3.minusDays(1));
+        System.out.println(date3.plusDays(1).minusDays(1));
 
     }
 }
